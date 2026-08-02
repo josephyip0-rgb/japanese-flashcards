@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>日文雙模式學習 App V4</title>
     <link rel="stylesheet" href="style.css">
+    <!-- 🌟 PWA 專用設定 -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a2e">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png">
 </head>
 <body>
     <div class="container">
@@ -91,5 +95,15 @@
     </div>
 
     <script src="script.js"></script>
+    <!-- 啟動 Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('Service Worker 註冊成功！', reg))
+            .catch(err => console.log('Service Worker 註冊失敗：', err));
+        });
+      }
+    </script>
 </body>
 </html>
