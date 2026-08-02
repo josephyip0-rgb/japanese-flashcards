@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日文雙模式學習 App V4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 專屬日文溫習神器</h1>
+        
+        <!-- 🌟 V6 新增：深色模式切換掣 -->
+        <button id="theme-toggle" class="theme-btn">🌙 深色模式</button>
+
+        <div class="tab-container">
+            <button id="tab-notes" class="tab-btn active">📖 溫習筆記模式</button>
+            <button id="tab-cards" class="tab-btn">🃏 閃卡挑戰模式</button>
+        </div>
+
+        <div id="notes-section" class="section">
+            <h2>核心基礎與動詞一覽表</h2>
+            <table id="notes-table">
+                <thead>
+                    <tr>
+                        <th>分類</th>
+                        <th>中文意思</th>
+                        <th>日文 / 漢字</th>
+                        <th>💡 記憶提示</th>
+                    </tr>
+                </thead>
+                <tbody id="notes-body">
+                    </tbody>
+            </table>
+        </div>
+
+        <!-- 模式 2：閃卡挑戰區 -->
+        <div id="cards-section" class="section hidden">
+            
+            <!-- 🌟 V4 新增：系統控制列 (篩選 & 洗牌) -->
+            <div class="system-controls">
+                <select id="category-filter" class="filter-dropdown">
+                    <option value="all">📂 所有分類 (100張)</option>
+                    <option value="mistakes" id="mistake-option" style="color: #e74c3c; font-weight: bold;">⚠️ 錯題本 (0張)</option>
+                    <!-- JavaScript 會自動填入分類 -->
+                </select>
+                <button id="shuffle-btn" class="action-btn" style="background-color: #8e44ad;">🔀 隨機洗牌</button>
+                <button id="reset-btn" class="action-btn" style="background-color: #7f8c8d;">🔄 重置</button>
+            </div>
+
+            <!-- 🌟 V7 新增：學習進度與準確率統計 -->
+            <div class="stats-container">
+                <div class="progress-wrapper">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="stats-text">
+                    <span id="progress-text">進度: 0 / 0</span> | 
+                    <span id="accuracy-text">勝率: 0%</span>
+                </div>
+            </div>
+
+            <!-- 計分板 -->
+            <div class="scoreboard">
+                <span class="score-right">✅ 答啱: <span id="score-right">0</span></span>
+                <span class="score-wrong">❌ 答錯: <span id="score-wrong">0</span></span>
+            </div>
+
+            <!-- 閃卡本體 -->
+            <div class="flashcard" id="flashcard">
+                <div class="front" id="card-front">
+                    <div class="category-tag" id="tag-front">分類</div>
+                    <div class="visual-icon" id="icon-display">🤔</div>
+                    <div class="word-text" id="text-front">點擊開始</div>
+                </div>
+                <div class="back" id="card-back">
+                    <div class="category-tag" id="tag-back">分類</div>
+                    <div class="word-text" id="text-back">答案</div>
+                    <div class="memory-tip" id="tip-back">提示</div>
+                </div>
+            </div>
+            
+            <!-- 操作按鈕 -->
+            <div class="controls">
+                <button class="action-btn" id="flip-btn">🔄 反轉睇答案</button>
+                <div id="judgement-controls" style="display: none;">
+                    <button class="action-btn wrong-btn" id="wrong-btn">❌ 唔記得</button>
+                    <button class="action-btn right-btn" id="right-btn">✅ 答啱咗</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
