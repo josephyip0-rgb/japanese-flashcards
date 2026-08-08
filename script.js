@@ -145,7 +145,20 @@ const vocabList = [
     
     { category: "ない形 (一段 去る+ない)", color: "#c0392b", icon: "🛏️", front: "不睡覺 (ない形)", back: "寝ない (ねない)", tip: "規律：寝る ➡️ 去 る + ない" },
     
-    { category: "ない形 (例外伏位)", color: "#8e44ad", icon: "⚠️", front: "有 (死物嘅否定)", back: "ない", tip: "⚠️ あります 嘅普通體否定係「ない」，唔係 あらない！" }
+    { category: "ない形 (例外伏位)", color: "#8e44ad", icon: "⚠️", front: "有 (死物嘅否定)", back: "ない", tip: "⚠️ あります 嘅普通體否定係「ない」，唔係 あらない！" },
+
+    // --- 📦 資料擴充包第十一彈：食物單字與實用文法 Combo ---
+    { category: "食物與飲品", color: "#e67e22", icon: "🍰", front: "蛋糕", back: "ケーキ", tip: "外來語：Cake" },
+    { category: "食物與飲品", color: "#e67e22", icon: "🍚", front: "牛肉飯", back: "牛丼 (ぎゅうどん)", tip: "日本三大牛丼：すき家、吉野家、松屋" },
+    { category: "食物與飲品", color: "#e67e22", icon: "🥟", front: "餃子", back: "餃子 (ギョーザ)", tip: "焼き餃子(煎餃)、水餃子(水餃)" },
+    { category: "食物與飲品", color: "#3498db", icon: "🍵", front: "茶", back: "お茶 (おちゃ)", tip: "通常指綠茶/日本茶" },
+    { category: "食物與飲品", color: "#3498db", icon: "💧", front: "水", back: "水 (みず)", tip: "去餐廳必嗌" },
+
+    { category: "實用文法 (願望)", color: "#8e44ad", icon: "🤤", front: "想食... (V-たい)", back: "食べたいです", tip: "規律：ます形去ます + たいです" },
+    { category: "實用文法 (想要)", color: "#8e44ad", icon: "🚗", front: "想要車 (Nがほしい)", back: "車が欲しいです", tip: "注意助詞用「が」！" },
+    { category: "實用文法 (許可)", color: "#27ae60", icon: "🙆‍♂️", front: "可以寫嗎？(V-てもいい)", back: "書いてもいいですか", tip: "規律：て形 + もいいですか" },
+    { category: "實用文法 (禁止)", color: "#c0392b", icon: "🙅‍♂️", front: "不可以輸 (V-てはいけない)", back: "負けてはいけない", tip: "規律：て形 + はいけない" },
+    { category: "實用文法 (同時進行)", color: "#f39c12", icon: "🎧", front: "一邊聽音樂 (V-ながら)", back: "音楽を聞きながら", tip: "規律：ます形去ます + ながら" }
 ];
 
 // ==========================================
