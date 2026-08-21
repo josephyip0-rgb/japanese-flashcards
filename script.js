@@ -313,6 +313,9 @@ function flipCard() {
     flashcard.classList.add('is-flipped'); 
     flipBtn.style.display = 'none';
     judgementControls.style.display = 'block';
+    
+    // 🌟 V9：翻開卡片時，自動朗讀日文！
+    speakJapanese(); 
 }
 
 function handleJudgement(isRight) {
@@ -398,4 +401,37 @@ document.getElementById('reset-btn').addEventListener('click', () => {
         resetQuiz();
         alert('🔄 進度已全部重置！新一輪特訓開始。');
     }
+});
+
+// --- 🌟 V9 新增：語音朗讀 (Text-to-Speech) 引擎 ---
+const ttsBtn = document.getElementById('tts-btn');
+
+function speakJapanese() {
+    if (filteredList.length === 0) return;
+    const currentVocab = filteredList[currentIndex];
+    let textToRead = currentVocab.back;
+
+    // 智能過濾：提取括號內嘅平假名/片假名，避免漢字讀錯音
+    const match = textToRead.match(/\(([^)]+)\)/);
+    if (match) {
+        textToRead = match[1]; // 只讀括號入面嘅字
+    } else {
+        // 如果無括號，移除非日文嘅雜訊符號
+        textToRead = textToRead.replace(/[^\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FA5]/g, '');
+    }
+
+    if (!textToRead) return;
+
+    // 呼叫瀏覽器內建語音引擎
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(textToRead);
+    utterance.lang = 'ja-JP'; // 設定為日文口音
+    utterance.rate = 0.85;    // 語速稍微收慢，方便初學者聽清楚
+    window.speechSynthesis.speak(utterance);
+}
+
+// 點擊獨立按鈕時發音 (阻止事件冒泡，避免反轉卡片)
+ttsBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); 
+    speakJapanese();
 });
